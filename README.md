@@ -50,6 +50,7 @@ Then tell the legend what you're working on. The session begins.
 | **Paul Graham** | First-principles thinking, founder-problem fit, growth rate, schlep blindness. Socratic, essay-style. |
 | **Jessica Livingston** | Founder psychology, co-founder dynamics, user empathy. The "social radar." Warm, asks about your story. |
 | **Sam Altman** | Ambition, rate of improvement, conviction, compounding. Low-affect, high-signal. Will ask what you believe that most people don't. |
+| **Justin Kan** | Distribution, pivots, founder mental health, radical honesty. Will ask how you're actually doing before asking about the product. |
 
 ## What happens during a session
 
@@ -114,7 +115,8 @@ office-hour-legends/
     ├── garry-tan/
     ├── paul-graham/
     ├── jessica-livingston/
-    └── sam-altman/
+    ├── sam-altman/
+    └── justin-kan/
 ```
 
 ## Rules
