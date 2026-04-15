@@ -39,8 +39,18 @@ Parse the user's invocation. If they said "office hours with Garry", "brainstorm
 as PG", "run office hours as Jessica", etc., extract the name and match it
 (case-insensitive, substring) against folders in `personas/`.
 
+Discover the skill directory from the SKILL.md location rather than hardcoding
+a path. Try the two canonical install locations in order:
+
 ```bash
-_SKILL_DIR="$HOME/.claude/skills/gstack/office-hour-legends"
+for _candidate in \
+  "$HOME/.claude/skills/office-hour-legends" \
+  "$HOME/.claude/skills/gstack/office-hour-legends"; do
+  if [ -d "$_candidate/personas" ]; then
+    _SKILL_DIR="$_candidate"
+    break
+  fi
+done
 _PERSONA_DIR="$_SKILL_DIR/personas"
 ls "$_PERSONA_DIR" | grep -v '^_' | sort
 ```
@@ -69,7 +79,7 @@ _PERSONA="$_PERSONA_DIR/<selected-name>"
 ls "$_PERSONA"/*.md
 ```
 
-Read all of them. Standard files are:
+Read all of them (resolving `$_PERSONA_DIR` from Phase 0). Standard files are:
 - `identity.md` - who they are, role, background, what they're known for
 - `soul.md` - values, beliefs, what they care about, what makes them angry
 - `skills.md` - domains of expertise, pattern-recognition, lenses they apply
