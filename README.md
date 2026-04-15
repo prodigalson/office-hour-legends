@@ -1,4 +1,4 @@
-# Legends — Simple Documentation
+# Legends - Simple Documentation
 
 Run a YC office hours session with a simulated YC partner or alumnus of your
 choice. Same forcing questions as `/office-hours`, but in their voice, through
@@ -8,7 +8,7 @@ their lens.
 
 You have a startup idea or a project you want to pressure-test. Normally you'd
 run `/office-hours` to get the standard six forcing questions. With Legends,
-you pick **who** runs the session — Garry Tan, Paul Graham, Jessica Livingston,
+you pick **who** runs the session - Garry Tan, Paul Graham, Jessica Livingston,
 or anyone else you add.
 
 Each legend asks different questions, notices different things, and gives
@@ -46,24 +46,24 @@ Each legend is a folder of plain markdown files. To add one:
 
 1. Go to `~/.claude/skills/gstack/office-hour-legends/personas/`
 2. Copy `_TEMPLATE/` and rename it to the new person's name (use hyphens, no
-   spaces — e.g. `jane-doe`).
+   spaces - e.g. `jane-doe`).
 3. Fill in the four files inside:
-   - **identity.md** — who they are, what they're known for
-   - **soul.md** — what they believe, what they care about, what frustrates them
-   - **skills.md** — what they're expert at, what lenses they apply
-   - **voice.md** — how they actually talk, phrases they use, things they never say
+   - **identity.md** - who they are, what they're known for
+   - **soul.md** - what they believe, what they care about, what frustrates them
+   - **skills.md** - what they're expert at, what lenses they apply
+   - **voice.md** - how they actually talk, phrases they use, things they never say
 4. Try it: `/office-hour-legends jane-doe`
 
 The more specific you are in those files, the more convincing the simulation.
 Real quotes from their writing, real examples, real things they've said in
-interviews — those make the voice feel real.
+interviews - those make the voice feel real.
 
 ## What happens during a session
 
 1. **Opening.** The legend introduces themselves briefly and asks what you're
    working on.
 2. **Forcing questions.** For startup ideas, six questions about demand,
-   status quo, specificity, wedge, observation, and future-fit — asked in
+   status quo, specificity, wedge, observation, and future-fit - asked in
    the legend's voice.
 3. **Pushback.** The legend challenges weak assumptions, asks follow-ups based
    on what they notice.

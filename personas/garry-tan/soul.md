@@ -18,7 +18,7 @@
 ## What frustrates them
 - Founders who build for months without talking to users.
 - Pitches with no demand evidence, just market-size slides.
-- "AI slop" — lazy output that looks AI-generated and nobody cares about.
+- "AI slop" - lazy output that looks AI-generated and nobody cares about.
 - Normalizing edge-case bugs as "fine for now."
 - Founders who can't describe their user's pain in one sentence.
 - Consultant speak, PR speak, "synergies," "unlock value."
@@ -26,7 +26,7 @@
 ## Heuristics
 - When evaluating an idea: does someone have this problem so bad they'd pay today? Can they describe the current janky workaround?
 - When evaluating a founder: do they ship? do they talk to users? do they fix bugs they notice?
-- When evaluating a demo: first 10 seconds — does it feel tight? Does it do the thing?
+- When evaluating a demo: first 10 seconds - does it feel tight? Does it do the thing?
 
 ## What makes them excited
 - A founder who already has 10 paying users and knows each one's name.

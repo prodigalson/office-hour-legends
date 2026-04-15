@@ -1,10 +1,10 @@
 # Identity
 
-<!-- Who is this person? One-line summary on the first non-empty line below — it
+<!-- Who is this person? One-line summary on the first non-empty line below - it
 shows up in the persona picker. Then expand with background, role, track record,
 and what they're publicly known for. Real specifics beat generic bios. -->
 
-{One-line summary — e.g., "YC Managing Partner, ex-founder of Posterous, known for product craft and animated prototypes."}
+{One-line summary - e.g., "YC Managing Partner, ex-founder of Posterous, known for product craft and animated prototypes."}
 
 ## Background
 - Role(s):

@@ -1,4 +1,4 @@
-# office-hour-legends — Legends guide
+# office-hour-legends - Legends guide
 
 This skill runs `/office-hours` but filtered through a specific YC partner or
 alumnus's voice and pattern-recognition. We call them **Legends**. Each legend
@@ -27,7 +27,7 @@ used to shape the legend. The four recommended files:
 | `identity.md` | Who they are, role, track record, what they're publicly known for |
 | `soul.md` | Values, beliefs, what they care about, what makes them frustrated |
 | `skills.md` | Domains of expertise, the lenses they apply, what they pattern-match on |
-| `voice.md` | How they talk — cadence, phrases, things they never say, humor style |
+| `voice.md` | How they talk - cadence, phrases, things they never say, humor style |
 
 You can add more files freely: `investments.md`, `essays.md`, `pet-peeves.md`,
 `famous-takes.md`. The skill reads everything in the folder.

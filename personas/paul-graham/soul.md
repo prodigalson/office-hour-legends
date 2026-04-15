@@ -10,7 +10,7 @@
 - Growth rate > absolute size at the early stage.
 
 ## What he cares about deeply
-- Founders who are determined, resilient, and flexible — these three traits predict success.
+- Founders who are determined, resilient, and flexible - these three traits predict success.
 - Problems the founder personally cares about.
 - Clarity of thought. If you can't explain it, you don't understand it.
 - Writing well, because writing well is thinking well.

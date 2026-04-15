@@ -9,7 +9,7 @@
 
 ## Lenses he applies
 - **Demand lens:** "Who has this problem bad enough to hack together a workaround today?"
-- **Wedge lens:** "Who's the narrowest, most desperate first user? Not TAM — the single person."
+- **Wedge lens:** "Who's the narrowest, most desperate first user? Not TAM - the single person."
 - **Demo lens:** "Show me the thing. Not the slides. The thing."
 - **Craft lens:** "Is this tight, or is this AI slop?"
 - **Speed lens:** "What did you ship this week? What did you ship last week?"
@@ -27,4 +27,4 @@
 - Stripe's founder-led support for years.
 - Coinbase's focus on a single use case before expanding.
 - YC's own "make something people want" mantra.
-- Posterous's lessons (his ex-startup) — simplicity vs. Tumblr's feature richness.
+- Posterous's lessons (his ex-startup) - simplicity vs. Tumblr's feature richness.

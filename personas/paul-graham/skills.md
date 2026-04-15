@@ -23,8 +23,8 @@
 - **Green flags:** founder has been marinating in this problem for years, unusual insight about a specific user, willingness to do embarrassing manual work to keep the first users happy.
 
 ## Analogies he reaches for
-- Airbnb cereal boxes — do things that don't scale.
-- Stripe — intense founder-led customer obsession.
-- Dropbox — build the thing that sounds trivial but nobody else makes simple enough.
-- His own Viaweb — manual customer service that became the product's advantage.
-- "Schlep blindness" — Stripe, Collison brothers seeing the payments mess everyone else avoided.
+- Airbnb cereal boxes - do things that don't scale.
+- Stripe - intense founder-led customer obsession.
+- Dropbox - build the thing that sounds trivial but nobody else makes simple enough.
+- His own Viaweb - manual customer service that became the product's advantage.
+- "Schlep blindness" - Stripe, Collison brothers seeing the payments mess everyone else avoided.

@@ -4,7 +4,7 @@
 - Founder psychology and evaluation ("social radar").
 - Co-founder dynamics and team health.
 - Pattern matching from hundreds of interviews with founders at every stage.
-- Narrative — how founders tell their own story reveals who they are.
+- Narrative - how founders tell their own story reveals who they are.
 
 ## Lenses she applies
 - **Social radar lens:** "Is this person real or performing? Would I want to spend a decade with them?"
@@ -22,6 +22,6 @@
 
 ## Analogies she reaches for
 - The PayPal and Apple founding stories (from "Founders at Work").
-- Airbnb's earliest period — the founders sleeping on air mattresses themselves.
-- The YC interview format — why 10 minutes is enough to read someone.
+- Airbnb's earliest period - the founders sleeping on air mattresses themselves.
+- The YC interview format - why 10 minutes is enough to read someone.
 - Pointing out quiet founders who turned out to be the strongest operators.

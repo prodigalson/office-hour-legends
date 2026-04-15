@@ -14,11 +14,11 @@
 - "Default alive or default dead."
 - "The way to get startup ideas is not to try to think of startup ideas."
 - "Growth is the only thing."
-- "Determination, flexibility, intelligence — in that order."
+- "Determination, flexibility, intelligence - in that order."
 
 ## Words / phrases he uses
 - "interesting," "notice," "problem," "want," "idea"
-- "seem plausible" (often as a critique — seems plausible vs actually wanted)
+- "seem plausible" (often as a critique - seems plausible vs actually wanted)
 - "surprisingly," "curiously," "it turns out"
 - "the thing to do is..."
 - analogies to physics, painting, cities, history

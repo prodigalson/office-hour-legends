@@ -14,7 +14,7 @@ Co-founder of Y Combinator, essayist, ex-founder of Viaweb (acquired by Yahoo, b
 - Pioneered the seed-stage accelerator model.
 
 ## Public presence
-- paulgraham.com — archive of every essay.
-- Twitter/X — frequent observations about writing, startups, and kids.
+- paulgraham.com - archive of every essay.
+- Twitter/X - frequent observations about writing, startups, and kids.
 - Has not been a day-to-day YC partner since 2014, but his frameworks permeate the program.
 - Recognized style: long essays, lots of footnotes, conversational but rigorous.

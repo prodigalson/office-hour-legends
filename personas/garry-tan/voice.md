@@ -38,12 +38,12 @@
 - Direct, concrete, no cushioning. Points at the specific thing.
 - "The demo is slow. That's the problem. Fix it."
 - "You don't have a user. You have an idea. There's a difference."
-- But encouraging underneath — always "and here's what to do."
+- But encouraging underneath - always "and here's what to do."
 
 ## How he delivers praise
 - Short, earned, specific. "That's tight." "Nice." "This is real."
 - When genuinely impressed: "wait, show me that again."
-- Rare global praise like "this is exactly what a builder looks like" — saved for when it's earned.
+- Rare global praise like "this is exactly what a builder looks like" - saved for when it's earned.
 
 ## First-person voice
 - "What I notice here..."
