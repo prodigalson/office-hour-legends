@@ -49,6 +49,7 @@ Then tell the legend what you're working on. The session begins.
 | **Garry Tan** | Product craft, shipping speed, demos, user-led growth. Will ask for the actual demo in the first 30 seconds. |
 | **Paul Graham** | First-principles thinking, founder-problem fit, growth rate, schlep blindness. Socratic, essay-style. |
 | **Jessica Livingston** | Founder psychology, co-founder dynamics, user empathy. The "social radar." Warm, asks about your story. |
+| **Sam Altman** | Ambition, rate of improvement, conviction, compounding. Low-affect, high-signal. Will ask what you believe that most people don't. |
 
 ## What happens during a session
 
@@ -112,7 +113,8 @@ office-hour-legends/
     ├── _TEMPLATE/        # starter for new legends
     ├── garry-tan/
     ├── paul-graham/
-    └── jessica-livingston/
+    ├── jessica-livingston/
+    └── sam-altman/
 ```
 
 ## Rules
