@@ -42,6 +42,24 @@ Leave the name off and the skill will ask which legend you want:
 
 Then tell the legend what you're working on. The session begins.
 
+### Transcript review mode
+
+Have a legend review a real meeting from Fathom - an investor pitch, a customer
+call, a cofounder conversation. The legend reads the full transcript and gives
+you timestamped feedback on what you did well, what you missed, and what the
+other party signaled that you may not have caught.
+
+```
+/office-hour-legends dalton
+> review my pitch from yesterday
+```
+
+The skill pulls your recent meetings from the Fathom API, lets you pick one,
+and the legend goes through it with you live.
+
+**Requires:** `FATHOM_API_KEY` environment variable set in your shell. Get your
+API key from [Fathom settings](https://fathom.video/settings).
+
 ## Included legends
 
 | Legend | Focus |
@@ -59,6 +77,8 @@ Then tell the legend what you're working on. The session begins.
 
 ## What happens during a session
 
+### Standard office hours
+
 1. **Opening.** The legend introduces themselves and asks what you're working on.
 2. **Forcing questions.** Six questions about demand, status quo, specificity,
    wedge, observation, and future-fit, asked in the legend's voice.
@@ -66,6 +86,20 @@ Then tell the legend what you're working on. The session begins.
 4. **Alternatives.** A few different approaches to the problem, for you to weigh.
 5. **Design doc.** A markdown file is saved summarizing the session, tagged
    with which legend ran it.
+
+### Transcript review
+
+1. **Meeting selection.** The skill fetches your recent meetings from Fathom and
+   lets you pick one (or auto-matches if you name it or paste a Fathom URL).
+2. **Full read.** The legend reads the entire transcript, summary, and action items.
+3. **Timestamped feedback.** The legend walks through the meeting: what you did
+   well, what you fumbled, and investor/customer signals you may have missed.
+4. **Rewrite suggestions.** For the weakest moments, the legend writes what they
+   would have said instead.
+5. **Live session.** You go back and forth with the legend to sharpen your pitch,
+   rework answers, or pivot into a broader office-hours discussion.
+6. **Session doc.** A markdown file is saved with the full review, timestamped
+   notes, and action items.
 
 ## Add your own legend
 
@@ -115,6 +149,9 @@ office-hour-legends/
 ├── SKILL.md              # the skill definition Claude Code loads
 ├── README.md             # this file
 ├── LICENSE
+├── scripts/
+│   ├── fathom-list-meetings.sh   # fetch recent meetings from Fathom API
+│   └── fathom-get-transcript.sh  # fetch full transcript for a meeting
 └── personas/
     ├── _TEMPLATE/        # starter for new legends
     ├── garry-tan/
