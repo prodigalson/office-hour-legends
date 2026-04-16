@@ -44,10 +44,10 @@ Then tell the legend what you're working on. The session begins.
 
 ### Transcript review mode
 
-Have a legend review a real meeting from Fathom - an investor pitch, a customer
-call, a cofounder conversation. The legend reads the full transcript and gives
-you timestamped feedback on what you did well, what you missed, and what the
-other party signaled that you may not have caught.
+Have a legend review a real meeting from [Fathom](https://fathom.video) - an
+investor pitch, a customer call, a cofounder conversation. The legend reads
+the full transcript and gives you timestamped feedback on what you did well,
+what you missed, and what the other party signaled that you may not have caught.
 
 ```
 /office-hour-legends dalton
@@ -57,8 +57,8 @@ other party signaled that you may not have caught.
 The skill pulls your recent meetings from the Fathom API, lets you pick one,
 and the legend goes through it with you live.
 
-**Requires:** `FATHOM_API_KEY` environment variable set in your shell. Get your
-API key from [Fathom settings](https://fathom.video/settings).
+**Requires:** `FATHOM_API_KEY` environment variable. See
+[Fathom transcript review](#fathom-transcript-review) below for full setup.
 
 ## Included legends
 
@@ -101,6 +101,138 @@ API key from [Fathom settings](https://fathom.video/settings).
 6. **Session doc.** A markdown file is saved with the full review, timestamped
    notes, and action items.
 
+## Fathom transcript review
+
+Transcript review lets you bring a real meeting into office hours. Instead of
+describing what happened, the legend reads the actual conversation and reacts
+to it - what you said, what the other person said, what signals got missed,
+and what you should say differently next time.
+
+### Setup
+
+1. **Get your Fathom API key.** Go to
+   [fathom.video/settings](https://fathom.video/settings), scroll to the API
+   section, and copy your key.
+
+2. **Set the environment variable.** Add this to your `~/.bashrc` or
+   `~/.zshrc`:
+
+   ```bash
+   export FATHOM_API_KEY="your-api-key-here"
+   ```
+
+   Then restart your shell or run `source ~/.bashrc`.
+
+3. **That's it.** The skill auto-detects when you ask for a transcript review
+   and handles the rest.
+
+### How it works
+
+1. You pick a legend and tell them you want to review a meeting:
+
+   ```
+   /office-hour-legends paul-graham
+   > I pitched to an investor yesterday, can you review the transcript?
+   ```
+
+2. The skill calls the Fathom API and shows your recent meetings. You pick the
+   one you want reviewed.
+
+3. The legend reads the full transcript - every speaker, every line, every
+   timestamp - plus Fathom's AI summary and action items for extra context.
+
+4. The legend delivers structured feedback:
+
+   - **Overall impression** - their gut reaction, as if watching from the back
+     of the room
+   - **What you did well** - specific moments with timestamps and your actual
+     words quoted back
+   - **What you missed or fumbled** - specific moments where you could have
+     been stronger, with the legend's rewrite of what to say instead
+   - **Investor/customer signals** - moments where the other person showed
+     interest, concern, or skepticism that you didn't pick up on
+   - **Questions you should have asked** - what the legend would have wanted
+     you to ask that you didn't
+
+5. After the initial feedback, you go live. The legend stays in character and
+   you work through the issues together:
+
+   - Sharpen specific answers ("The investor asked about retention - let's
+     rework your response")
+   - Practice handling objections they raised
+   - Pivot into a broader office-hours session about the company
+
+6. A session doc is saved with the full review, timestamped notes, and action
+   items for your next meeting.
+
+### What triggers transcript review
+
+The skill switches to transcript review mode when you say things like:
+
+- "Review my pitch" / "review my meeting" / "review my call"
+- "Look at my transcript" / "go over my transcript"
+- "I had a meeting with an investor" / "I pitched to..."
+- Paste a Fathom URL (fathom.video/calls/...)
+- Mention "fathom," "transcript," or "recording"
+
+If you just say "I'm working on X," it runs standard office hours instead.
+
+### What Fathom data the skill uses
+
+The skill reads from the Fathom API (via `scripts/fathom-list-meetings.sh`
+and `scripts/fathom-get-transcript.sh`):
+
+| Data | Source | Used for |
+|------|--------|----------|
+| Meeting title and date | Fathom API | Letting you pick which meeting to review |
+| Participant names | Fathom API | Identifying who said what |
+| Full transcript | Fathom API | The legend reads every word and gives timestamped feedback |
+| AI summary | Fathom API | Extra context for the legend's overall assessment |
+| Action items | Fathom API | Cross-referenced with the legend's own recommendations |
+
+The API key is user-scoped - it only accesses meetings you recorded or that
+were shared to your team. Rate limit is 60 calls/minute.
+
+### Example session
+
+```
+> /office-hour-legends dalton
+
+Legends - office hours with Dalton Caldwell. Ready when you are. What are we
+looking at?
+
+> I pitched to a VC yesterday. Can you go over the transcript?
+
+[Skill fetches recent meetings from Fathom]
+
+I see a few recent meetings. Which one?
+1. Meeting with Sarah Chen - Apr 14
+2. Team standup - Apr 14
+3. Meeting with First Round - Apr 13
+
+> 3
+
+[Skill fetches full transcript for "Meeting with First Round"]
+
+Alright, I read the whole thing. Here's my take...
+
+Overall: You started strong but lost the thread about halfway through when
+they asked about competition. Let me walk through it.
+
+[00:01:15] Good - you opened with the problem, not the solution. "We noticed
+that every logistics company we talked to was still using spreadsheets for..."
+That's the right instinct. You grounded it in something real.
+
+[00:04:30] This is where it gets shaky. They asked "who else is doing this?"
+and you said "nobody, really." I've seen fifty versions of that answer. It
+never lands. Someone is always doing something adjacent. Here's what I'd say
+instead: "The closest thing is X, but they're approaching it from Y angle.
+We're different because..."
+
+[00:08:12] They asked about your growth rate and you gave them an absolute
+number instead of a percentage. Always give the weekly growth rate...
+```
+
 ## Add your own legend
 
 Each legend is a folder of plain markdown files under `personas/`. To add one:
@@ -141,6 +273,13 @@ real. Iterate by editing the markdown files; no code changes required.
   immediately defend. Sit with it.
 - **Try the same idea with different legends.** Paul will ask different
   questions than Jessica. You learn something from each.
+- **Review your pitch before AND after.** Run a standard office-hours session
+  to prep before a meeting, then review the Fathom transcript after to see
+  what actually happened vs. what you planned.
+- **Use transcript review with different legends.** Dalton will focus on
+  whether the idea held up. Michael will focus on whether you were direct
+  enough. Paul Buchheit will focus on whether the product demo landed. Each
+  lens catches something different.
 
 ## Project layout
 
