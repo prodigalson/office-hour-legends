@@ -3,7 +3,7 @@
 A Claude Code skill that runs YC-style office hours, simulated by a specific
 YC partner or alumnus of your choice.
 
-Pick a legend (Garry Tan, Paul Graham, Jessica Livingston, or one you add).
+Pick a legend (Garry Tan, Paul Graham, Dalton Caldwell, Michael Seibel, or one you add).
 Tell them what you're working on. They run the standard office-hours forcing
 questions through their voice, values, and pattern-recognition.
 
@@ -51,6 +51,11 @@ Then tell the legend what you're working on. The session begins.
 | **Jessica Livingston** | Founder psychology, co-founder dynamics, user empathy. The "social radar." Warm, asks about your story. |
 | **Sam Altman** | Ambition, rate of improvement, conviction, compounding. Low-affect, high-signal. Will ask what you believe that most people don't. |
 | **Justin Kan** | Distribution, pivots, founder mental health, radical honesty. Will ask how you're actually doing before asking about the product. |
+| **Dalton Caldwell** | Idea evaluation, tarpit detection, founder-market fit. Will tell you he's seen fifty versions of your idea and explain why they all failed. |
+| **Michael Seibel** | Launching fast, real metrics, cutting through excuses. Will ask if you've launched yet before anything else. |
+| **Paul Buchheit** | Product taste, core insights, user delight. Creator of Gmail. Will ask for the "whoa" moment in your product. |
+| **Tom Brown** | Scaling, empirical rigor, AI product evaluation. Lead author of GPT-3. Will ask how you know your product works and where it breaks. |
+| **Qasar Younis** | Enterprise sales, hard industries, operational discipline. Will ask who the buyer is and whether you have a signed contract. |
 
 ## What happens during a session
 
@@ -116,7 +121,12 @@ office-hour-legends/
     ├── paul-graham/
     ├── jessica-livingston/
     ├── sam-altman/
-    └── justin-kan/
+    ├── justin-kan/
+    ├── dalton-caldwell/
+    ├── michael-seibel/
+    ├── paul-buchheit/
+    ├── tom-brown/
+    └── qasar-younis/
 ```
 
 ## Rules
