@@ -7,6 +7,10 @@ Pick a legend (Garry Tan, Paul Graham, Dalton Caldwell, Michael Seibel, or one y
 Tell them what you're working on. They run the standard office-hours forcing
 questions through their voice, values, and pattern-recognition.
 
+**Works in your native language.** You can run the entire session in Spanish,
+Mandarin, Portuguese, Hindi, Japanese, Arabic, French, or any other language
+you think in. See [Run office hours in your native language](#run-office-hours-in-your-native-language).
+
 ## Install
 
 This is a [Claude Code skill](https://code.claude.com/docs/en/skills). It
@@ -41,6 +45,38 @@ Leave the name off and the skill will ask which legend you want:
 ```
 
 Then tell the legend what you're working on. The session begins.
+
+### Run office hours in your native language
+
+You do not have to speak English to use this. Tell the legend what language
+you want to work in and the entire session happens in that language - the
+forcing questions, the pushback, the alternatives, the design doc at the end.
+
+```
+/office-hour-legends garry
+> Let's do this in Spanish. Estoy trabajando en una plataforma de logistica...
+```
+
+```
+/office-hour-legends paul-graham
+> 日本語でお願いします。AIで契約書をレビューするツールを作っています。
+```
+
+The legend stays in character - Paul Graham's Socratic style, Garry Tan's
+demand for the demo, Dalton Caldwell's tarpit skepticism - just delivered in
+your language. Specific phrases that are uniquely English (YC jargon, direct
+quotes from their essays) may stay in English when it helps; everything else
+translates.
+
+This opens the skill to any founder anywhere. If English is slowing you down
+when you try to describe your startup, switch. You will give sharper answers
+in the language you actually think in, and the legend's feedback will land
+harder.
+
+Works with every mode below: standard office hours, transcript review,
+Bookface research, and HN research. Transcript reviews of non-English
+meetings work too - the legend reads the transcript in its original language
+and gives feedback in whatever language you ask for.
 
 ### Bookface research mode
 
