@@ -60,6 +60,26 @@ No setup needed beyond installing the bookface skill - legends auto-detect it.
 If it's not installed, sessions run normally without it. See
 [Bookface integration](#bookface-integration) below.
 
+### Hacker News research mode
+
+If you install the [hn CLI](https://github.com/voska/hn-cli), legends also
+pull public Hacker News signal during the session - Show HN launches in the
+space, comment sentiment on the founder's idea, what the HN crowd says about
+the incumbent the founder is trying to replace, and the current front-page
+bar if you're heading toward a launch.
+
+Example, mid-session:
+
+> You said nobody's doing this. Someone launched this exact pitch on HN
+> nine months ago - 340 points, 180 comments. Top comment is still the
+> funniest takedown of the idea I've read. Read it before tomorrow, then
+> tell me what they did wrong and why you're different.
+
+HN is public opinion; Bookface is private founder reality. Together the
+legend can triangulate: what YC founders whisper to each other vs. what the
+wider world says out loud. No setup beyond installing `hn` - free API, no
+auth. See [Hacker News integration](#hacker-news-integration) below.
+
 ### Transcript review mode
 
 Have a legend review a real meeting from [Fathom](https://fathom.video) - an
@@ -342,6 +362,67 @@ session benefits.
   this..." not "I searched Bookface and found...".
 - No more than one or two citations per session. This is seasoning, not a
   research report.
+
+## Hacker News integration
+
+The legends skill also integrates with the
+[hn CLI](https://github.com/voska/hn-cli) to pull public Hacker News signal
+alongside Bookface's private-YC view. Where Bookface shows what YC founders
+say to each other, HN shows what the wider tech world says out loud -
+launches that succeeded or flopped, ideas that got trashed, incumbents that
+everyone secretly hates.
+
+### What it does
+
+When `hn` is on PATH, the legend searches HN live during the session at
+these moments:
+
+- **Competitive reality check.** When the founder says "nobody's doing
+  this," the legend searches HN for the space. If someone launched the
+  same pitch and got 500 points two years ago, the legend brings it up.
+- **Status quo sharpening.** HN threads on incumbents (Jira, spreadsheets,
+  Salesforce) contain the sharpest descriptions of why people hate the
+  status quo - and why they still use it. The legend pulls real comment
+  phrasing into the pushback.
+- **Launch-bar calibration.** Before the assignment phase, the legend
+  checks the current Show HN front page so "ship by Friday" advice is
+  grounded in what actually gets traction right now.
+- **Sentiment on the specific idea.** The legend searches for the
+  founder's own pitch. If HN has already rejected it twice, the legend
+  names that directly. If it's been loved before, the session pivots to
+  differentiation.
+- **Investor/fund color.** In transcript review, the legend can check HN
+  for public commentary on the VC the founder pitched.
+
+### Install
+
+The hn CLI ships as a single binary. See
+[voska/hn-cli](https://github.com/voska/hn-cli) for install instructions.
+Verify it works:
+
+```bash
+hn search "show hn" -n 3
+```
+
+No credentials, no auth, no rate limit headaches - free Algolia API.
+
+### Rules the legend follows
+
+- **HN is public opinion, Bookface is private founder reality.** The
+  legend keeps them distinct. "The HN crowd trashed this last year" is a
+  different signal than "A YC founder who tried this told the forum..."
+- **HN is often wrong about B2B.** The legend treats HN sentiment as
+  signal, not gospel - especially for enterprise ideas HN has historically
+  dismissed (Slack, Zoom, Dropbox all got panned).
+- **Quote real comment phrasing.** HN's sharpest critics write better than
+  any summary. When a comment lands, the legend pulls it verbatim.
+- **One or two citations per session.** Seasoning, not a research report.
+
+### When it doesn't run
+
+- **Lite mode.** HN research only runs in full mode.
+- **Not installed.** If `hn` isn't on PATH, legends skip silently and run
+  normally.
 
 ## Add your own legend
 

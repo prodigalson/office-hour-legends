@@ -21,6 +21,7 @@ allowed-tools:
   - WebSearch
   - WebFetch
   - Bash(~/.claude/skills/bookface/bookface-search.sh:*)
+  - Bash(hn:*)
 ---
 
 # Legends - persona-driven YC office hours
@@ -171,6 +172,70 @@ essays), `all`. Default 5 hits. See the bookface skill's README for details.
   findings. This is flavor and evidence, not a research report.
 - **Stay in character.** The legend doesn't say "I searched Bookface." They
   say "I've seen founders on Bookface wrestle with this exact thing..."
+
+## Phase 2.8: Hacker News research (optional, full mode only)
+
+If the [hn CLI](https://github.com/voska/hn-cli) is on PATH, the legend can
+pull public HN signal to complement Bookface's private-YC view. HN is where
+the non-YC world reacts - launches that flopped, ideas that got trashed,
+companies that made the front page with real comment threads.
+
+**Detect availability:**
+
+```bash
+if command -v hn >/dev/null 2>&1; then
+  _HN=1
+else
+  _HN=0
+fi
+```
+
+If `_HN=0`, skip silently.
+
+**When to search:**
+
+- **Competitive check.** When the founder names a competitor or claims "no
+  one is doing this," search HN for the space. `hn search "<keyword>" -n 10`.
+  If a Show HN from 18 months ago got 800 points in this exact space, the
+  legend should know before pushing back on demand.
+- **Status quo reality.** Search HN for the tool the founder is replacing
+  (Jira, spreadsheets, whatever). HN threads often have the sharpest,
+  funniest descriptions of why the incumbent is terrible - and why users
+  still tolerate it. Useful evidence for the "workaround cost" question.
+- **Launch bar.** Before the assignment phase, if the founder is heading
+  toward a Show HN, `hn front -n 10` and a targeted search show what the
+  current front-page bar looks like. Grounds "ship this week" advice.
+- **Sentiment on the idea itself.** `hn search "<their pitch in 3 words>"`.
+  If the community has already trashed this exact idea twice, the legend
+  names it directly. If it's been launched and loved, that reframes the
+  whole session toward differentiation.
+- **Transcript review.** Search for public discussion of the investor or
+  fund from the pitched meeting. What does HN think of First Round's
+  questions? What do founders say about pitching Benchmark? Useful color.
+
+**How to search:**
+
+```bash
+hn search "<query>" -n 5                # Top stories
+hn search "<query>" --comments -n 5     # Comment search (often sharper)
+hn search "<query>" --sort date -n 5    # Recent discussion
+hn search "<query>" --min-points 100    # Only things people cared about
+hn front -n 10                           # Current front page
+hn read <item_id>                        # Full thread with top comments
+```
+
+**Rules:**
+
+- **HN is public opinion, Bookface is founder reality.** Keep them distinct
+  in the legend's voice. "The HN crowd trashed this exact idea last year"
+  is different from "A YC founder who tried this told the forum..."
+- **Quote real comment phrasing.** HN's sharpest critics write better than
+  any synthesis. Pull the actual comment when it lands.
+- **Don't chase the pack.** HN hates a lot of things that turn into
+  successful companies. The legend should use HN sentiment as signal, not
+  gospel - especially for B2B ideas HN is famously wrong about.
+- **One or two citations.** Same rule as Bookface. Seasoning, not a
+  research dump.
 
 ## Phase 3: Adopt voice + open the session
 
