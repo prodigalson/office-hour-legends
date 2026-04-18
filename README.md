@@ -274,6 +274,16 @@ at these moments:
 - **Transcript rewrites.** For the weakest moments in a reviewed pitch, the
   legend folds a real founder's phrasing into the suggested rewrite.
 
+### Who can use this
+
+Bookface is YC's private forum for founders of funded YC companies. **Only
+current YC founders have accounts.** If you're not in a YC batch, you can
+ignore this whole section - legends run normally without it.
+
+Also: the script logs in with username + password via YC's web form. If
+your YC account uses Google SSO only (no password set), you'll need to
+set a password on your YC account first, or the script can't authenticate.
+
 ### Install
 
 ```bash
@@ -281,9 +291,39 @@ git clone https://github.com/voska/bookface-search.git \
   ~/.claude/skills/bookface
 ```
 
-Set your Bookface credentials (either env vars or a credentials file - see
-the bookface-search README). Restart Claude Code. That's it - legends
-auto-detect Bookface and use it when the session benefits.
+Then set your YC credentials. Two options:
+
+```bash
+# Option A: env vars in your shell rc (~/.bashrc, ~/.zshrc)
+export BOOKFACE_USERNAME="your-yc-username"
+export BOOKFACE_PASSWORD="your-yc-password"
+
+# Option B: a credentials file the script sources
+cat > ~/.bookface_credentials <<'EOF'
+BOOKFACE_USERNAME="your-yc-username"
+BOOKFACE_PASSWORD="your-yc-password"
+EOF
+chmod 600 ~/.bookface_credentials
+```
+
+Restart Claude Code. Legends auto-detect Bookface and use it when the
+session benefits.
+
+### How auth works (and what to watch for)
+
+- **No OAuth.** The script does form-based login: scrapes a CSRF token from
+  `account.ycombinator.com`, POSTs your creds to `/sign_in`, and extracts
+  an Algolia API key from your logged-in home page.
+- **Session cache.** The Algolia key is cached at `/tmp/bookface_algolia_key`
+  for ~12h, so you only pay the login cost once per session. Cookies live
+  at `/tmp/bookface_cookies`.
+- **Credentials on disk.** `~/.bookface_credentials` is a plaintext shell
+  file. `chmod 600` it. Don't commit it. Don't sync it into a cloud drive.
+- **Brittle to YC changes.** If YC adds 2FA, captcha, or changes the sign-in
+  form, the script will break until upstream updates it. Legends skip
+  Bookface silently when the script errors - sessions still run.
+- **Force re-auth.** If searches start failing, delete the cached files:
+  `rm -f /tmp/bookface_algolia_key /tmp/bookface_cookies`.
 
 ### When it doesn't run
 
