@@ -42,6 +42,24 @@ Leave the name off and the skill will ask which legend you want:
 
 Then tell the legend what you're working on. The session begins.
 
+### Bookface research mode
+
+If you install the [bookface-search](https://github.com/voska/bookface-search)
+skill alongside this one, legends can ground the session in real YC founder
+discussions instead of generic advice. When a founder makes a claim about
+demand, status quo, or a competitive landscape, the legend searches Bookface
+(YC's internal forum) and cites actual founder experiences back.
+
+Example, mid-session:
+
+> You said nobody is doing this, but I've seen founders on Bookface wrestle
+> with the same space. Here's one from last year who tried your exact wedge
+> and hit a wall at onboarding. Worth reading before you commit.
+
+No setup needed beyond installing the bookface skill - legends auto-detect it.
+If it's not installed, sessions run normally without it. See
+[Bookface integration](#bookface-integration) below.
+
 ### Transcript review mode
 
 Have a legend review a real meeting from [Fathom](https://fathom.video) - an
@@ -232,6 +250,58 @@ We're different because..."
 [00:08:12] They asked about your growth rate and you gave them an absolute
 number instead of a percentage. Always give the weekly growth rate...
 ```
+
+## Bookface integration
+
+The legends skill optionally integrates with
+[bookface-search](https://github.com/voska/bookface-search) to ground sessions
+in real YC founder discussions from Bookface, YC's internal forum.
+
+### What it does
+
+When Bookface is available, the legend searches it live during the session
+at these moments:
+
+- **Demand pushback.** Before challenging a founder's demand claims, the
+  legend pulls real founder experiences with the same problem space.
+- **Status quo naming.** The legend checks how other YC founders describe
+  their workarounds with the same tools.
+- **Alternatives generation.** The legend searches the YC company directory
+  for shipped products in the space, so alternatives are grounded in real
+  companies instead of hypotheticals.
+- **Assignment handoff.** The legend cites YC's canonical guide on the
+  relevant pattern when handing off a next action.
+- **Transcript rewrites.** For the weakest moments in a reviewed pitch, the
+  legend folds a real founder's phrasing into the suggested rewrite.
+
+### Install
+
+```bash
+git clone https://github.com/voska/bookface-search.git \
+  ~/.claude/skills/bookface
+```
+
+Set your Bookface credentials (either env vars or a credentials file - see
+the bookface-search README). Restart Claude Code. That's it - legends
+auto-detect Bookface and use it when the session benefits.
+
+### When it doesn't run
+
+- **Lite mode.** Bookface research only runs in full mode. Lite mode stays
+  fast and cheap.
+- **Not installed.** If `~/.claude/skills/bookface/bookface-search.sh` is
+  missing, legends skip Bookface silently and run normally.
+- **Builder mode.** Side projects and hackathons skip it by default. The
+  research is for startup questions where YC's corpus adds weight.
+
+### Rules
+
+- Legends **quote, don't paraphrase** Bookface findings. Real founder words
+  carry more weight than a summary.
+- Legends stay in character: "I've seen founders on Bookface wrestle with
+  this..." not "I searched Bookface and found...".
+- No more than one or two citations per session. This is seasoning, not a
+  research report.
 
 ## Add your own legend
 

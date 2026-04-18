@@ -20,6 +20,7 @@ allowed-tools:
   - AskUserQuestion
   - WebSearch
   - WebFetch
+  - Bash(~/.claude/skills/bookface/bookface-search.sh:*)
 ---
 
 # Legends - persona-driven YC office hours
@@ -115,6 +116,61 @@ annoy them? What would make them lean in?
 If the user mentions Fathom, shares a fathom.video URL, or says "review my
 pitch/meeting/call/transcript", run the Transcript Review workflow at the
 bottom of this file instead of the standard forcing questions.
+
+## Phase 2.7: Bookface research (optional, full mode only)
+
+If the [bookface skill](https://github.com/voska/bookface-search) is installed
+at `~/.claude/skills/bookface/bookface-search.sh`, the legend can ground the
+session in real YC founder discussions instead of generic advice.
+
+**Detect availability:**
+
+```bash
+if [ -x "$HOME/.claude/skills/bookface/bookface-search.sh" ]; then
+  _BOOKFACE=1
+else
+  _BOOKFACE=0
+fi
+```
+
+If `_BOOKFACE=0`, skip this phase silently. Do not tell the user to install it
+unless they ask why the legend didn't cite specific YC discussions.
+
+**When to search (during the session, not up-front):**
+
+- **Before pushback on demand claims** → search `forum` for the problem space
+  to see what patterns other YC founders hit. Quote real founder experiences
+  back, timestamped and attributed by post if possible.
+- **Before naming a status quo** → search `forum` for the workflow or tool
+  the founder is replacing. Founders on Bookface describe their real
+  spreadsheet-and-Slack workarounds in detail.
+- **Before generating alternatives (Phase 7)** → search `companies` for YC
+  companies in the space to ground alternatives in real products that shipped,
+  not hypotheticals. Search `knowledge` for curated YC guides on the pattern.
+- **Before the assignment** → search `knowledge` or `articles` for YC's
+  canonical advice on the next action. Cite the source when relevant.
+
+**How to search:**
+
+```bash
+~/.claude/skills/bookface/bookface-search.sh "<query>" <index> <hits>
+```
+
+Indices: `forum` (founder discussions), `knowledge` (YC guides), `companies`
+(YC directory), `vendors` (service providers), `deals`, `articles` (YC
+essays), `all`. Default 5 hits. See the bookface skill's README for details.
+
+**Rules:**
+
+- **Search in the legend's voice.** If Dalton is running the session, search
+  for tarpit-idea patterns. If Garry is running it, search for product-craft
+  and demo discussions. The queries reflect the legend's lens.
+- **Quote, don't paraphrase.** When citing a Bookface finding, use the actual
+  phrasing from the post. "A founder on Bookface put it this way: ..."
+- **Don't dump results.** Search, synthesize, cite one or two pointed
+  findings. This is flavor and evidence, not a research report.
+- **Stay in character.** The legend doesn't say "I searched Bookface." They
+  say "I've seen founders on Bookface wrestle with this exact thing..."
 
 ## Phase 3: Adopt voice + open the session
 
@@ -321,6 +377,13 @@ middle-of-meeting filler to keep tokens down.
    wanted asked.
 6. **Rewrite suggestions** - for the 2-3 weakest moments, the legend
    writes what they would have said, in their own voice.
+
+**Optional Bookface grounding.** If the bookface skill is available (see
+Phase 2.7), search for 1-2 specific moments where YC founder discussions add
+weight. Example: if the investor asked about retention and the founder
+fumbled, search `forum` for "retention metrics investor pitch" and fold a
+real founder's phrasing into the rewrite. Don't overdo it - one or two
+citations max, and only when they sharpen the feedback.
 
 ### Step 4: Save the session doc (full mode only)
 
